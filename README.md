@@ -1,17 +1,20 @@
 # nginxbook
 nginx docs
 
-### 下载cmder
-https://github.com/cmderdev/cmder/releases
-
-### 下载nginx for win
+### 命令行工具 cmder
 ```
-  https://nginx.org/en/download.html
+cmder
+[下载cmder](https://github.com/cmderdev/cmder/releases)
 ```
 
-### 下载winsw工具
+### NGINX 程序
 ```
-  https://github.com/kohsuke/winsw/releases
-  https://github.com/daptiv/NginxService
+  [下载nginx for win](https://nginx.org/en/download.html)
+```
+
+### NGINX windows 服务
+```
+ [下载winsw工具](https://github.com/kohsuke/winsw/releases)
+ [NginxService](https://github.com/daptiv/NginxService)
 ```
 
