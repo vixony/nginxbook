@@ -3,19 +3,28 @@
 
 ## windows
 #### 查找进程
+
+**查看进程包含字符串'nginx'的进程列表**
 ```
-tasklist|findstr "nginx*"
-tasklist /fi "imagename eq nginx.exe"
-
-
+> tasklist|findstr "nginx*"
+```
+**查看名称为nginx.exe的进程列表**
+```
+> tasklist /fi "imagename eq nginx.exe"
+```
+**查看占用8080端口的进程号**
+```
+> netstat –aon | findstr “8080”
+```
+**tasklist 命令详解**
+```
 TASKLIST [/S system [/U username [/P [password]]]]
          [/M [module] | /SVC | /V] [/FI filter] [/FO format] [/NH]
+```
 
-描述:
-    该工具显示在本地或远程机器上当前运行的进程列表。
-
-
+描述:该工具显示在本地或远程机器上当前运行的进程列表。
 参数列表:
+```
    /S     system           指定连接到的远程系统。
    /U     [domain\]user    指定应该在哪个用户上下文执行这个命令。
    /P     [password]       为提供的用户上下文指定密码。如果省略，则
@@ -33,8 +42,10 @@ TASKLIST [/S system [/U username [/P [password]]]]
                            在输出中显示。
                            只对 "TABLE" 和 "CSV" 格式有效。
    /?                      显示此帮助消息。
+```
 
 筛选器:
+```
     筛选器名称     有效运算符           有效值
     -----------     ---------------           --------------------------
     STATUS          eq, ne                    RUNNING | SUSPENDED
@@ -53,10 +64,10 @@ TASKLIST [/S system [/U username [/P [password]]]]
     SERVICES        eq, ne                    服务名称
     WINDOWTITLE     eq, ne                    窗口标题
     模块         eq, ne                    DLL 名称
-
+```
 注意: 当查询远程计算机时，不支持 "WINDOWTITLE" 和 "STATUS"
       筛选器。
-
+```
 Examples:
     TASKLIST
     TASKLIST /M
@@ -70,10 +81,40 @@ Examples:
     TASKLIST /FI "USERNAME ne NT AUTHORITY\SYSTEM" /FI "STATUS eq running"
 ```
 
+#### 关闭进程
+```
+TSKILL processid | processname [/SERVER:servername] [/ID:sessionid | /A] [/V]
+
+  processid           要结束的进程的 Process ID。
+  processname         要结束的进程名称。
+  /SERVER:servername  含有 processID 的服务器(默认值是当前值)。
+                         使用进程名和 /SERVER 时，必须指定 /ID
+                         或 /A
+  /ID:sessionid       结束在指定会话下运行的进程。
+  /A                  结束在所有会话下运行的进程。
+  /V                  显示正在执行的操作的信息。
+```
+
 ## linux
 
 ### 查找进程
 ```
 ps -ef |grep nig
 
+Usage: ps [-aefls] [-u UID] [-p PID]
+
+Report process status
+
+ -a, --all       show processes of all users
+ -e, --everyone  show processes of all users
+ -f, --full      show process uids, ppids
+ -h, --help      output usage information and exit
+ -l, --long      show process uids, ppids, pgids, winpids
+ -p, --process   show information for specified PID
+ -s, --summary   show process summary
+ -u, --user      list processes owned by UID
+ -V, --version   output version information and exit
+ -W, --windows   show windows as well as cygwin processes
+
+With no options, ps outputs the long format by default
 ```
