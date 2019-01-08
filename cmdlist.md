@@ -13,6 +13,13 @@
    nginx -h                查看帮助信息
  　nginx -V                详细版本信息，包括编译参数 
    nginx  -c filename      指定配置文件
+   
+   # 直接点击Nginx目录下的   nginx.exe    
+   start nginx
+   nginx -s stop           stop表示立即停止nginx,不保存相关信息
+   nginx -s quit           quit表示正常退出nginx,并保存相关信息
+   nginx -s reload
+   # 重启(因为改变了配置,需要重启)
 ```
 
 ## windows
