@@ -103,6 +103,14 @@ Examples:
 ```
 
 #### 关闭进程
+
+```
+taskkill /f /t /im               进程名称
+taskkill /f /t /im /javaw.exe
+
+```
+
+#### taskkill help
 ```
 TASKKILL [/S system [/U username [/P [password]]]]
          { [/FI filter] [/PID processid | /IM imagename] } [/T] [/F]
